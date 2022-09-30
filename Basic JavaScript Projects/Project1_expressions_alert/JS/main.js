@@ -3,5 +3,5 @@ var Sent1 = "This is the beginning of the string"; var Sent2 = "and this is the 
 //Interactive Browser Game//
 window.alert(X);
 window.alert(Y)
-document.write(Sent1)+(Sent2);;
+document.write(Sent1)+(Sent2);
 document.write(3+3);

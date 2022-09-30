@@ -5,3 +5,8 @@ window.alert(X);
 window.alert(Y)
 document.write(Sent1)+(Sent2);
 document.write(3+3);
+function myFunction() {
+    var sentence = "I am learning";
+    sentence += " a lot from this book!";
+    document.getElementById("concatenate") .innerHTML = sentence;
+}

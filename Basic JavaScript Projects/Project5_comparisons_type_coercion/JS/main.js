@@ -35,11 +35,11 @@ function Ride_Function() {
 Customer cust = new Customer("Brenda Smith");
 class Customer
 {
-    String FullName;
-    Boolean Active
+    string = FullName;
+    boolean = Active
 }
-Customer(string name) {
-    Fullname = name;
+Customer(string "name") {
+    FullName = name;
     Active = true;
 }
 function Vehicle(Make, Model, Year, Color) {
@@ -110,10 +110,33 @@ function Time_function() {
     }
     document.getElementById("Time_of_day").innerHTML = Reply;
 }
+function full_Sentence() {
+    var part_1 = "I have ";
+    var part_2 = "made this ";
+    var part_3 = "into a complete  ";
+    var part_4 = "sentence.";
+    var whole_sentence = part_1.concat(part_2, part_3, part_4);
+    document.getElementById("Concatenate").innerHTML = whole_sentence;
+}
+function slice_Method() {
+    var Sentence = "All work and no play makes Johnny a dull boy.";
+    var Section = Sentence.slice(27,33);
+    document.getElementById("Slice").innerHTML = Section;
+}
+function to_UpperC() { //takes UpperC paragraph code and changes all text in string value to Uppercase//
+    let text = document.getElementById("UpperC").innerHTML;
+    document.getElementById("UpperC").innerHTML =
+    text.toUpperCase();
+}
+function string_Method() {
+    var X = 182;
+    document.getElementById("Numbers_to_string").innerHTML = X.toString();
+}
 
-
-
-
+function precision_Method() {
+    var X = 12938.3012987376112;
+    document.getElementById("Precision").innerHTML = X.toPrecision(10)
+}
 
 
 

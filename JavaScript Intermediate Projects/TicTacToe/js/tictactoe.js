@@ -34,13 +34,13 @@ function placeXOrO(squareNumber) {
             activePlayer = 'X';
         }
         //This function plays placement sound.
-        audio('.media/place.mp3');
+        audio('./media/place.mp3');
         //This condition checks to see if it is the computers turn.
         if (activePlayer === 'O') {
             //This function disables clicking for computers turn.
             disableClick();
             //This function waits 1 second before the computer places an image and enables click.
-            setTimeout(function() { computersTurn(); }, 1000);
+            setTimeout(function () { computersTurn(); }, 1000);
         }
         //Returning true is needed for our computersTurn() function to work.
         return true;
@@ -104,16 +104,16 @@ function checkWinConditions() {
     //This condition checks for a tie. If none of the above conditions are met and 9 squares are selected the code executes.
     else if (selectedSquares.length >= 9) {
         //This function plays the tie game sound.
-        audio('.media/tie.mp3');
+        audio('./media/tie.mp3');
         //This function sets a .3 second timer before the resetGame is called.
         setTimeout(function () { resetGame(); }, 500);
     }
     //This function checks if an array includes 3 strings. It is used to check for each win condition.
     function arrayIncludes(squareA, squareB, squareC) {
         //These 3 variables will be used to check for 3 in a row.
-        const a = selectedSquare.includes(squareA);
-        const b = selectedSquare.includes(squareB);
-        const c = selectedSquare.includes(squareC);
+        const a = selectedSquares.includes(squareA);
+        const b = selectedSquares.includes(squareB);
+        const c = selectedSquares.includes(squareC);
         //If the 3 variables we pass are all included in our array then true is returned and our else if condition executes the drawLine() function.
         if (a === true && b === true && c === true) { return true; }
     }
@@ -123,7 +123,7 @@ function disableClick() {
     //This makes our body unclickable.
     body.style.pointerEvents = 'none';
     //This makes our body clickable again after 1 second.
-    setTimeout(function () { body.style.pointEvents = 'auto'; }, 1000)
+    setTimeout(function () { body.style.pointerEvents = 'auto'; }, 1000)
 }
 
 //This function takes a string parameter of the path you set earlier for placement sound('./media/place.mp3)
@@ -144,13 +144,13 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         //This line indicates where the start of a lines y axis is.
         y1 = coordY1,
         //This line indicates where the end of a lines x axis is.
-        x2 = coordX2
+        x2 = coordX2,
         //This line indicates where the end of a lines y axis is.
-        y2 = coordY2
+        y2 = coordY2,
         //This variable stores temporary x axis data we update in our animation loop.
-        x = x1
+        x = x1,
         //This variable stores temporary y axis data we update in our animation loop.
-        y = y1
+        y = y1;
     //This function interacts with the canvas.
     function animateLineDrawing() {
         //This variable creates a loop
@@ -204,7 +204,8 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     //This line waits 1 second. Then, clears canvas, resets game, and allows clicking again.
     setTimeout(function () { clear(); resetGame(); }, 1000)
 }
-..This function resets the game in the event of a tie or a window.AbortControllerfunction resetGame() {
+//This function resets the game in the event of a tie or a win
+function resetGame() {
     //This for loop iterates through each HTML square element.
     for (let i = 0; i < 9; i++) {
         //This cariable gets the HTML element i.

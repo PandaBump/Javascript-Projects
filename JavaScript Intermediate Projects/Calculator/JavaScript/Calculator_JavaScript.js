@@ -12,10 +12,10 @@ const Calculator = {
 
 //This modifies values each time a button is clicked on.
 function Input_Digit(digit) {
-    const {Display_Value, Wait_Second_Operand } = Claculator;
+    const {Display_Value, Wait_Second_Operand } = Calculator;
     //This checks if the Wait_Second_Operand is true and sets Display_Value to the key that was clicked on.
     if (Wait_Second_Operand === true) {
-        Claculator.Display_Value = digit;
+        Calculator.Display_Value = digit;
         Calculator.Wait_Second_Operand = false;
     } else {
         //This overwrites Display_Value if the current value is 0 otherwise it adds onto it.
@@ -40,11 +40,11 @@ function Handle_Operator(Next_Operator) {
     const Value_of_Input = parseFloat(Display_Value);
     //Checks if an operator already exists and if Wait_Second_Operand is true, then updates the operator and exits from the function.
     if (operator && Calculator.Wait_Second_Operand) {
-        Claculator.operator = Next_Operator;
+        Calculator.operator = Next_Operator;
         return;
     }
     if (First_Operand == null) {
-        Claculator.First_Operand = Value_of_Input;
+        Calculator.First_Operand = Value_of_Input;
     } else if (operator) { //Check if an operator already exists
         const Value_Now = First_Operand || 0;
         //If operator exists, property lookup is performed for the operator in the Perform_Calculation object and the function that matches the operator is executed.
